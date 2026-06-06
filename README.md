@@ -1,23 +1,20 @@
 Customer Churn Prediction
 ─────────────────────────────────────────────────────────────────────────────
 
-PROBLEM
-─────────────────────────────────────────────────────────────────────────────
+PROBLEM─────────────────────────────────────────────────────────────────────────────
 Companies lose 20–30% of customers silently. Nobody knows who is about to 
 leave until they already have. Retention teams are reactive, 
 not proactive — and by the time they act, it's too late.
 
 
-DATASET
-─────────────────────────────────────────────────────────────────────────────
+DATASET─────────────────────────────────────────────────────────────────────────────
 Online Retail Dataset (UCI / Kaggle)
 541,909 transactions · Dec 2010 – Dec 2011 · 38 countries
 Columns: InvoiceNo, StockCode, Description, Quantity, InvoiceDate,
          UnitPrice, CustomerID, Country
 
 
-KEY INSIGHTS
-─────────────────────────────────────────────────────────────────────────────
+KEY INSIGHTS─────────────────────────────────────────────────────────────────────────────
 
 EDA (E_commerce_EDA.ipynb)
 
@@ -92,8 +89,7 @@ Churn Model (RFM__churn_model.ipynb)
     assigned a risk tier: High, Medium, or Low.
 
 
-APPROACH
-─────────────────────────────────────────────────────────────────────────────
+APPROACH─────────────────────────────────────────────────────────────────────────────
 Transaction-level data was cleaned, aggregated to one row per customer,
 and used to build RFM scores and a binary churn label (no purchase in
 90 days). Two classification models — Logistic Regression as a baseline
@@ -104,8 +100,7 @@ customer was then scored with a churn probability and bucketed into a
 risk tier for downstream action.
 
 
-RESULTS
-─────────────────────────────────────────────────────────────────────────────
+RESULTS─────────────────────────────────────────────────────────────────────────────
 The Random Forest model identified 33.4% of customers (1,449) as churned
 and surfaced a High Risk group whose combined historical revenue represents
 a quantifiable retention opportunity. The RFM segmentation revealed that
@@ -113,8 +108,7 @@ Champions — roughly 10% of the customer base — generate ~45% of revenue,
 giving the business a clear prioritisation framework for retention spend.
 
 
-LEARNING
-─────────────────────────────────────────────────────────────────────────────
+LEARNING─────────────────────────────────────────────────────────────────────────────
 The most important technical lesson was understanding why a perfect model
 score (AUC = 1.0) is a red flag rather than a success — it signals data
 leakage, where the answer is hidden inside the features. Here, recency_days
@@ -129,8 +123,7 @@ threshold below 0.5 to maximise recall (catching more real churners) at
 an acceptable precision cost.
 
 
-TECHNOLOGIES
-─────────────────────────────────────────────────────────────────────────────
+TECHNOLOGIES─────────────────────────────────────────────────────────────────────────────
 
   pandas          Data loading, cleaning, aggregation, feature engineering
   numpy           Numerical operations and log transformations
@@ -143,8 +136,7 @@ TECHNOLOGIES
                   integration for persistent file storage across sessions
 
 
-PROJECT STRUCTURE
-─────────────────────────────────────────────────────────────────────────────
+PROJECT STRUCTURE─────────────────────────────────────────────────────────────────────────────
 
   E_commerce_EDA.ipynb        Exploratory analysis — 8 interactive charts,
                               customer summary table
@@ -154,8 +146,7 @@ PROJECT STRUCTURE
                               evaluation, risk scoring
 
 
-HOW TO RUN
-─────────────────────────────────────────────────────────────────────────────
+HOW TO RUN─────────────────────────────────────────────────────────────────────────────
 1. Open Google Colab (colab.research.google.com)
 2. Upload each notebook via File → Upload notebook
 3. Upload the dataset (Online Retail.csv or .xlsx) when prompted
